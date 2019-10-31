@@ -29,6 +29,8 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "no-cache")
+
 		hostname, err := os.Hostname()
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
