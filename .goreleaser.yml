@@ -48,6 +48,8 @@ dockers:
   goarch: amd64
   binaries:
   - hello
+  extra_files:
+  - cmd/hello/index.html
   image_templates:
   - "billglover/{{.ProjectName}}:latest"
   - "billglover/{{.ProjectName}}:{{ .Tag }}"
