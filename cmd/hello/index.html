@@ -4,22 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, 世界!</title>
+    <style>
+        body {background-color: #3d3c3c; color: #e6e7e8; font-family: Consolas,Arial,monospace; text-align: center;}
+        h1 {color: #3498db; font-size: 4vmax;}
+        section {text-align: center; width:100%;}
+        table {margin: auto; width: 480px; text-align: left; border-collapse: separate; border-spacing: 0pt 10pt;}
+        th {color: #3d3c3c; background-color: #e6e7e8; padding: 0.8em 0.5em;border: 1px solid #e6e7e8;}
+        td {padding: 0.8em 0.5em;border: 1px solid #e6e7e8;}
+    </style>
 </head>
 <body>
     <h1>Hello, 世界!</h1>
-    <table>
-        <tr>
-            <th>version</th><td>{{.Version}}</td>
-        </tr>
-        <tr>
-            <th>commit</th><td>{{.Commit}}</td>
-        </tr>
-        <tr>
-            <th>date</th><td>{{.Date}}</td>
-        </tr>
-        <tr>
-            <th>hostname</th><td>{{.Hostname}}</td>
-        </tr>
-    </table>
+    <section>
+        <table>
+            <tr>
+                <th>version</th><td>{{.Version}}</td>
+            </tr>
+            <tr>
+                <th>commit</th><td>{{.Commit}}</td>
+            </tr>
+            <tr>
+                <th>date</th><td>{{.Date}}</td>
+            </tr>
+            <tr>
+                <th>hostname</th><td>{{.Hostname}}</td>
+            </tr>
+        </table>
+    </section>
 </body>
 </html>
