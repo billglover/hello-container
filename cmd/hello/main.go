@@ -20,6 +20,7 @@ type pageInfo struct {
 	Commit   string
 	Date     string
 	Hostname string
+	Request  string
 }
 
 // Server holds configuration details for the HTTP server.
@@ -70,11 +71,14 @@ func (s *server) info() http.HandlerFunc {
 			os.Exit(1)
 		}
 
+		request := fmt.Sprintf("%s %s %s", r.Proto, r.Host, r.RequestURI)
+
 		data := pageInfo{
 			Version:  version,
 			Commit:   commit,
 			Date:     date,
 			Hostname: hostname,
+			Request:  request,
 		}
 
 		err = s.tmpl.Execute(w, data)
