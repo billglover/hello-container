@@ -11,12 +11,18 @@
         table {margin: auto; width: 480px; text-align: left; border-collapse: separate; border-spacing: 0pt 10pt;}
         th {color: #3d3c3c; background-color: #e6e7e8; padding: 0.8em 0.5em;border: 1px solid #e6e7e8;}
         td {padding: 0.8em 0.5em;border: 1px solid #e6e7e8;}
+        nav {margin: auto; width: 480px; text-align: left;}
+        a {color: #3498db;}
+
     </style>
 </head>
 <body>
     <h1>Hello, 世界!</h1>
     <section>
         <table>
+            <tr>
+                <th>request</th><td>{{.Request}}</td>
+            </tr>
             <tr>
                 <th>version</th><td>{{.Version}}</td>
             </tr>
@@ -30,6 +36,15 @@
                 <th>hostname</th><td>{{.Hostname}}</td>
             </tr>
         </table>
+    </section>
+    <section>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/kill">/kill</a> - terminate an application instance
+                </li>
+            </ul>
+        </nav>
     </section>
 </body>
 </html>
