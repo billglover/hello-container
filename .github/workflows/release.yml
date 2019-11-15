@@ -14,6 +14,11 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: '1.13.x'
+      - name: Docker login
+        run: docker login --username ${{ DOCKER_USERNAME }} --password ${{ DOCKER_PASSWORD }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v1
         with:
@@ -21,5 +26,3 @@ jobs:
           args: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
